@@ -1,7 +1,8 @@
-import { Component, inject } from '@angular/core'
+import { Component } from '@angular/core'
 import { CommonModule }      from '@angular/common'
 import { StudentStore }      from '../../store/student.store'
 import { GradePipe }         from '../../../../shared/pipes/grade.pipe'
+import { injectStore } from '@stato/angular'
 
 @Component({
   selector:   'app-student-detail',
@@ -54,14 +55,20 @@ import { GradePipe }         from '../../../../shared/pipes/grade.pipe'
 
         </div>
 
-        <div class="detail-card__actions">
-          <button
+                <div class="detail-card__actions">
+        <button
+            class="btn btn--primary"
+            (click)="onEdit()"
+        >
+            Modifier
+        </button>
+        <button
             class="btn btn--danger"
             [disabled]="store.isLoading"
             (click)="onDelete()"
-          >
+        >
             Supprimer
-          </button>
+        </button>
         </div>
 
       </div>
@@ -146,7 +153,7 @@ import { GradePipe }         from '../../../../shared/pipes/grade.pipe'
 })
 export class StudentDetailComponent {
 
-  store = inject(StudentStore)
+  store = injectStore(StudentStore)
 
   onClose() {
     this.store.selectStudent(null)
@@ -156,4 +163,10 @@ export class StudentDetailComponent {
     if (!this.store.selected) return
     await this.store.deleteStudent(this.store.selected.id)
   }
+
+  onEdit() {
+  // Le formulaire réagit déjà via ngOnChanges
+  // On scroll vers le haut pour voir le formulaire
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
 }

@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core'
+import { Component, OnInit, signal } from '@angular/core'
 import { CommonModule }                      from '@angular/common'
 import { StudentStore }                      from '../../store/student.store'
 import { StudentListComponent }              from '../../components/student-list/student-list.component'
@@ -6,6 +6,7 @@ import { StudentFormComponent }              from '../../components/student-form
 import { StudentDetailComponent }            from '../../components/student-detail/student-detail.component'
 import { SpinnerComponent }                  from '../../../../shared/components/spinner/spinner.component'
 import { ToastComponent }                    from '../../../../shared/components/toast/toast.component'
+import { injectStore } from '@stato/angular'
 
 @Component({
   selector:   'app-students-page',
@@ -67,10 +68,14 @@ import { ToastComponent }                    from '../../../../shared/components
           </div>
 
           <!-- Colonne droite — form + détail -->
-          <div class="page__right">
-            <app-student-form />
+           <div class="page__right">
+            @if (store.selected) {
+                <app-student-form [selected]="store.selected" />
+            } @else {
+                <app-student-form />
+            }
             <app-student-detail />
-          </div>
+            </div>
 
         </div>
       }
@@ -95,7 +100,7 @@ import { ToastComponent }                    from '../../../../shared/components
         </div>
       }
 
-      <!-- Toast -->
+    <!-- Toast -->
       <app-toast
         [message]="toastMessage()"
         [type]="toastType()"
@@ -235,7 +240,7 @@ import { ToastComponent }                    from '../../../../shared/components
 })
 export class StudentsPageComponent implements OnInit {
 
-  store             = inject(StudentStore)
+  store             = injectStore(StudentStore)
   showNotifications = signal(false)
   toastMessage      = signal('')
   toastType         = signal<'success' | 'error'>('success')

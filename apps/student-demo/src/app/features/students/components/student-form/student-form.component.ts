@@ -1,8 +1,9 @@
-import { Component, inject, signal } from '@angular/core'
+import { Component, Input, OnChanges, SimpleChanges, signal } from '@angular/core'
 import { CommonModule }              from '@angular/common'
 import { FormsModule }               from '@angular/forms'
 import { StudentStore }              from '../../store/student.store'
 import type { StudentCreate }        from '../../../../core/models/student.model'
+import { injectStore }               from '@stato/angular'
 
 @Component({
   selector:   'app-student-form',
@@ -33,11 +34,11 @@ import type { StudentCreate }        from '../../../../core/models/student.model
           placeholder="ex: alice@ecole.com"
           [class.input--error]="submitted() && !email"
         />
-      @if (submitted() && !email) {
-  <span class="error">L'email est obligatoire</span>
-} @else if (submitted() && !isValidEmail(email)) {
-  <span class="error">L'email n'est pas valide</span>
-}
+        @if (submitted() && !email) {
+          <span class="error">L'email est obligatoire</span>
+        } @else if (submitted() && !isValidEmail(email)) {
+          <span class="error">L'email n'est pas valide</span>
+        }
       </div>
 
       <div class="form-group">
@@ -87,78 +88,67 @@ import type { StudentCreate }        from '../../../../core/models/student.model
       flex-direction: column;
       gap:           1rem;
     }
-
     h3 { margin: 0; font-size: 1rem; color: #1e293b; }
-
-    .form-group {
-      display:        flex;
-      flex-direction: column;
-      gap:            0.3rem;
-    }
-
+    .form-group { display: flex; flex-direction: column; gap: 0.3rem; }
     label { font-size: 0.85rem; font-weight: 500; color: #475569; }
-
     input {
-      padding:       0.6rem 0.8rem;
-      border:        1px solid #e2e8f0;
+      padding: 0.6rem 0.8rem;
+      border: 1px solid #e2e8f0;
       border-radius: 8px;
-      font-size:     0.9rem;
-      outline:       none;
-      transition:    border-color 0.15s;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.15s;
     }
-    input:focus       { border-color: #3b82f6; }
+    input:focus        { border-color: #3b82f6; }
     input.input--error { border-color: #ef4444; }
-
     .error { font-size: 0.78rem; color: #ef4444; }
-
     .form-actions { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
-
     .btn {
-      padding:       0.6rem 1.2rem;
-      border:        none;
+      padding: 0.6rem 1.2rem;
+      border: none;
       border-radius: 8px;
-      cursor:        pointer;
-      font-size:     0.9rem;
-      font-weight:   500;
-      transition:    background 0.15s;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background 0.15s;
     }
-    .btn--primary   { background: #3b82f6; color: white; }
-    .btn--primary:hover   { background: #2563eb; }
-    .btn--primary:disabled { background: #93c5fd; cursor: not-allowed; }
-    .btn--secondary { background: #f1f5f9; color: #475569; }
-    .btn--secondary:hover { background: #e2e8f0; }
+    .btn--primary            { background: #3b82f6; color: white; }
+    .btn--primary:hover      { background: #2563eb; }
+    .btn--primary:disabled   { background: #93c5fd; cursor: not-allowed; }
+    .btn--secondary          { background: #f1f5f9; color: #475569; }
+    .btn--secondary:hover    { background: #e2e8f0; }
   `]
 })
-export class StudentFormComponent {
+export class StudentFormComponent implements OnChanges {
 
-  store = inject(StudentStore)
+  store     = injectStore(StudentStore)
+  @Input() selected: any = null
 
-  // Champs du formulaire
-  name     = ''
-  email    = ''
-  grade    = 10
+  name      = ''
+  email     = ''
+  grade     = 10
 
-  // Signals locaux
   submitted = signal(false)
   isEditing = signal(false)
 
-  ngOnInit() {
-    // Si un étudiant est sélectionné — mode édition
-    const selected = this.store.selected
-    if (selected) {
-      this.name     = selected.name
-      this.email    = selected.email
-      this.grade    = selected.grade
-      this.isEditing.set(true)
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['selected']) {
+      const s = changes['selected'].currentValue
+      if (s) {
+        this.name  = s.name
+        this.email = s.email
+        this.grade = s.grade
+        this.isEditing.set(true)
+      } else {
+        this.onReset()
+      }
     }
   }
 
   async onSubmit() {
     this.submitted.set(true)
-
-    // Validation
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-if (!this.name || !this.email || !emailRegex.test(this.email) || this.grade < 0 || this.grade > 20) return
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!this.name || !this.email || !emailRegex.test(this.email) || this.grade < 0 || this.grade > 20) return
 
     const student: StudentCreate = {
       name:   this.name,
@@ -190,6 +180,6 @@ if (!this.name || !this.email || !emailRegex.test(this.email) || this.grade < 0 
   }
 
   isValidEmail(email: string): boolean {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-}
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  }
 }

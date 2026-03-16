@@ -92,17 +92,22 @@ export function createStudentStore(service: StudentService) {
       },
 
       // Mettre à jour un étudiant
-      async updateStudent(state: any, id: string, updates: StudentUpdate) {
-        state.isLoading = true
+    async updateStudent(state: any, id: string, updates: StudentUpdate) {
+    state.isLoading = true
+
+    // Si id local (ajouté en demo) — pas d'appel API
+    if (!id.startsWith('local-')) {
         await service.update(id, updates)
-        state.students  = state.students.map((s: Student) =>
-          s.id === id ? { ...s, ...updates } : s
-        )
-        if (state.selected?.id === id) {
-          state.selected = { ...state.selected, ...updates }
-        }
-        state.isLoading = false
-      },
+    }
+
+    state.students = state.students.map((s: Student) =>
+        s.id === id ? { ...s, ...updates } : s
+    )
+    if (state.selected?.id === id) {
+        state.selected = { ...state.selected, ...updates }
+    }
+    state.isLoading = false
+    },
 
       // Supprimer avec optimistic update + rollback
       deleteStudent: optimistic(

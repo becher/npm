@@ -1,8 +1,9 @@
-import { Component, inject, output } from '@angular/core'
+import { Component } from '@angular/core'
 import { CommonModule }              from '@angular/common'
 import { StudentStore }              from '../../store/student.store'
 import { GradePipe }                 from '../../../../shared/pipes/grade.pipe'
 import type { Student }              from '../../../../core/models/student.model'
+import { injectStore } from '@stato/angular'
 
 @Component({
   selector:   'app-student-list',
@@ -156,7 +157,7 @@ import type { Student }              from '../../../../core/models/student.model
 })
 export class StudentListComponent {
 
-  store = inject(StudentStore)
+  store = injectStore(StudentStore)
 
   onSearch(event: Event) {
     const query = (event.target as HTMLInputElement).value
