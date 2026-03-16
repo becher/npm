@@ -8,12 +8,12 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideStato({
+          provideStato({
       http: {
         baseUrl: environment.apiUrl,
         timeout: 8000
       },
-      devtools: !environment.production
+      devtools: true  // ← isDevMode() gère automatiquement
     })
   ]
 }

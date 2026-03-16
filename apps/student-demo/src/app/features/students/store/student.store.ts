@@ -25,7 +25,7 @@ import type {
 // ─────────────────────────────────────────────────────
 
 export function createStudentStore(service: StudentService) {
-  return createStore({
+  const store = createStore({
 
     // ─── STATE ─────────────────────────────────────
     students:      [] as Student[],
@@ -190,30 +190,16 @@ export function createStudentStore(service: StudentService) {
     },
 
     // ─── HOOKS ─────────────────────────────────────
-    hooks: {
-      onInit: (store: any) => {
-        console.log('[StudentStore] initialisé')
-      },
-
-      onActionDone: (name: string, duration: number) => {
-        if (duration > 500) {
-          console.warn(`[StudentStore] ${name} lent : ${duration}ms`)
-        }
-      },
-
-      onError: (error: Error, actionName: string) => {
-        console.error(`[StudentStore] erreur dans ${actionName}:`, error.message)
-      },
-
-      onStateChange: (prev: any, next: any) => {
-        if (prev.students.length !== next.students.length) {
-          console.log(
-            `[StudentStore] étudiants: ${prev.students.length} → ${next.students.length}`
-          )
-        }
-      }
+ hooks: {
+  onStateChange: (prev: any, next: any) => {
+    if (prev.students.length !== next.students.length) {
+      console.log(`[StudentStore] étudiants: ${prev.students.length} → ${next.students.length}`)
     }
+  }
+}
   })
+    connectDevTools(store, 'StudentStore')  // ← une ligne
+    return store
 }
 
 // ─────────────────────────────────────────────────────
@@ -221,6 +207,8 @@ export function createStudentStore(service: StudentService) {
 // ─────────────────────────────────────────────────────
 
 import { Injectable, OnDestroy } from '@angular/core'
+import { devTools } from '@stato/core'
+import { connectDevTools } from '@stato/core'
 
 @Injectable({ providedIn: 'root' })
 export class StudentStore implements OnDestroy {

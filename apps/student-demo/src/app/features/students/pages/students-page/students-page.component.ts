@@ -1,5 +1,5 @@
 import { Component, OnInit, signal } from '@angular/core'
-import { CommonModule }                      from '@angular/common'
+import { CommonModule, DatePipe  }                      from '@angular/common'
 import { StudentStore }                      from '../../store/student.store'
 import { StudentListComponent }              from '../../components/student-list/student-list.component'
 import { StudentFormComponent }              from '../../components/student-form/student-form.component'
@@ -91,7 +91,7 @@ import { injectStore } from '@stato/angular'
             @for (n of store.notifications; track n.at) {
               <li>
                 <span class="notif-type notif-type--{{ n.type }}">{{ n.type }}</span>
-                étudiant {{ n.studentId }} — {{ n.at | date:'HH:mm:ss' }}
+                étudiant {{ n.studentId }} — {{ formatTime(n.at) }}
               </li>
             } @empty {
               <li class="notif-empty">Aucune notification</li>
@@ -268,4 +268,8 @@ export class StudentsPageComponent implements OnInit {
     this.toastType.set(type)
     setTimeout(() => this.toastMessage.set(''), 3000)
   }
+
+  formatTime(iso: string): string {
+  return new Date(iso).toTimeString().slice(0, 8)
+}
 }

@@ -8,26 +8,28 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "types":   "./dist/index.d.ts",
-      "import":  "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     }
   },
   "scripts": {
     "build": "tsup",
-    "test":  "vitest run",
-    "dev":   "tsup --watch"
+    "test": "vitest run",
+    "dev": "tsup --watch"
   },
   "peerDependencies": {
+    "@angular/common": ">=17.0.0",
     "@angular/core": ">=17.0.0"
   },
   "dependencies": {
     "@stato/core": "workspace:*"
   },
   "devDependencies": {
-    "tsup":       "^8.0.0",
-    "vitest":     "^1.6.0",
+    "@angular/common": "^18.2.14",
+    "@angular/core": "^17.0.0",
+    "tsup": "^8.0.0",
     "typescript": "^5.4.0",
-    "@angular/core": "^17.0.0"
+    "vitest": "^1.6.0"
   }
 }

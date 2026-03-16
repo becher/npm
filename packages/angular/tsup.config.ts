@@ -8,5 +8,5 @@ export default defineConfig({
   sourcemap: true,
   minify:    false,
   treeshake: true,
-  external:  ['@angular/core', '@stato/core']
+  external:  ['@angular/core', '@angular/common', '@stato/core']
 })

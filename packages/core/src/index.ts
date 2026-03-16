@@ -25,3 +25,6 @@ export type {
   StatoHooks
 }                                               from './types'
 export { StatoHttpError }                       from './types'
+
+export { devTools, createDevTools, connectDevTools } from './devtools'
+export type { ActionLog, DevToolsState, DevToolsInstance } from './devtools'
