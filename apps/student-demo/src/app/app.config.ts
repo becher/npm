@@ -1,6 +1,6 @@
 import { ApplicationConfig, provideZoneChangeDetection }  from '@angular/core'
 import { provideRouter }      from '@angular/router'
-import { provideStato }       from '@stato/angular'
+import { provideStato }       from '@ngstato/angular'
 import { routes }             from './app.routes'
 import { environment }        from '../environments/environment'
 

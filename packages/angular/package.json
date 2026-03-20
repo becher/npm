@@ -1,5 +1,5 @@
 {
-  "name": "@stato/angular",
+  "name": "@ngstato/angular",
   "version": "0.1.0",
   "private": false,
   "description": "Stato — Angular adapter with native Signals",
@@ -23,7 +23,7 @@
     "@angular/core": ">=17.0.0"
   },
   "dependencies": {
-    "@stato/core": "workspace:*"
+    "@ngstato/core": "workspace:*"
   },
   "devDependencies": {
     "@angular/common": "^18.2.14",

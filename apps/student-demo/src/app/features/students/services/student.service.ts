@@ -4,7 +4,7 @@
 // ─────────────────────────────────────────────────────
 
 import { Injectable }                         from '@angular/core'
-import { http }                               from '@stato/core'
+import { http }                               from '@ngstato/core'
 import type { Student, StudentCreate, StudentUpdate } from '../../../core/models/student.model'
 
 @Injectable({ providedIn: 'root' })

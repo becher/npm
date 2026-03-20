@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────
-// @stato/core — throttled()
+// @ngstato/core — throttled()
 // Limite la fréquence d'exécution d'une action
 // Remplace throttleTime de RxJS — sans RxJS
 // ─────────────────────────────────────────────────────

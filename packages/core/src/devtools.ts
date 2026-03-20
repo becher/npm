@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────
-// @stato/core — DevTools
+// @ngstato/core — DevTools
 // Logique pure — pas de dépendance Angular
 // ─────────────────────────────────────────────────────
 

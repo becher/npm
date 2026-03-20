@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────
-// @stato/core — API publique complète
+// @ngstato/core — API publique complète
 // ─────────────────────────────────────────────────────
 
 // Store

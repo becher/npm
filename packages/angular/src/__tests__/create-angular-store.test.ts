@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────
-// @stato/angular — tests createAngularStore()
+// @ngstato/angular — tests createAngularStore()
 // ─────────────────────────────────────────────────────
 
 import { describe, it, expect, vi, beforeEach } from 'vitest'
@@ -10,7 +10,6 @@ import { createAngularStore, StatoStoreBase }   from '../create-angular-store'
 // ─────────────────────────────────────────────────────
 
 vi.mock('@angular/core', () => {
-  // Signal simple simulé
   const signalFn = (initial: any) => {
     let value = initial
     const sig  = () => value
@@ -19,22 +18,16 @@ vi.mock('@angular/core', () => {
     return sig
   }
 
-  // Computed simulé
-  const computedFn = (fn: any) => {
-    const sig  = () => fn()
-    return sig
-  }
-
   return {
-    signal:      signalFn,
-    computed:    computedFn,
-    Injectable:  () => (cls: any) => cls,
-    OnDestroy:   class {},
-    inject:      vi.fn(),
-    InjectionToken: class {
-      constructor(public desc: string) {}
-    },
-    makeEnvironmentProviders: (providers: any[]) => providers
+    signal:                  signalFn,
+    computed:                (fn: any) => fn,
+    effect:                  (fn: any) => fn(),
+    isDevMode:               () => true,       
+    Injectable:              () => (t: any) => t,
+    OnDestroy:               class {},
+    inject:                  vi.fn(),
+    InjectionToken:          class { constructor(public desc: string) {} },
+    makeEnvironmentProviders: (p: any) => p,
   }
 })
 
@@ -330,12 +323,12 @@ describe('StatoStoreBase', () => {
 describe('provideStato()', () => {
 
   it('fonctionne sans configuration', async () => {
-    const { provideStato } = await import('../provide-stato')
+    const { provideStato } = await import('../provide-ngstato')
     expect(() => provideStato()).not.toThrow()
   })
 
   it('fonctionne avec configuration HTTP', async () => {
-    const { provideStato } = await import('../provide-stato')
+    const { provideStato } = await import('../provide-ngstato')
     expect(() => provideStato({
       http: {
         baseUrl: 'https://api.test.com',
@@ -345,7 +338,7 @@ describe('provideStato()', () => {
   })
 
   it('fonctionne avec devtools activé', async () => {
-    const { provideStato } = await import('../provide-stato')
+    const { provideStato } = await import('../provide-ngstato')
     expect(() => provideStato({
       devtools: true
     })).not.toThrow()

@@ -2,7 +2,7 @@ import { Component } from '@angular/core'
 import { CommonModule }      from '@angular/common'
 import { StudentStore }      from '../../store/student.store'
 import { GradePipe }         from '../../../../shared/pipes/grade.pipe'
-import { injectStore } from '@stato/angular'
+import { injectStore } from '@ngstato/angular'
 
 @Component({
   selector:   'app-student-detail',

@@ -3,8 +3,8 @@ import {
   InjectionToken,
   isDevMode
 }                          from '@angular/core'
-import { configureHttp, devTools } from '@stato/core'
-import type { StatoConfig }        from '@stato/core'
+import { configureHttp, devTools } from '@ngstato/core'
+import type { StatoConfig }        from '@ngstato/core'
 
 export interface StatoAngularConfig {
   http?:     StatoConfig

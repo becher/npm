@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────
-// @stato/core — StatoHttp
+// @ngstato/core — StatoHttp
 // Client HTTP natif — fetch + baseUrl + auth + timeout
 // Zero dépendance — pas de HttpClient Angular
 // ─────────────────────────────────────────────────────

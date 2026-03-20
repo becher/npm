@@ -6,7 +6,7 @@ import { StudentFormComponent }              from '../../components/student-form
 import { StudentDetailComponent }            from '../../components/student-detail/student-detail.component'
 import { SpinnerComponent }                  from '../../../../shared/components/spinner/spinner.component'
 import { ToastComponent }                    from '../../../../shared/components/toast/toast.component'
-import { injectStore } from '@stato/angular'
+import { injectStore } from '@ngstato/angular'
 
 @Component({
   selector:   'app-students-page',

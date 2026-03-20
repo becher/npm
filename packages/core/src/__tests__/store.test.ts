@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────
-// @stato/core — tests createStore()
+// @ngstato/core — tests createStore()
 // ─────────────────────────────────────────────────────
 
 import { describe, it, expect, vi, beforeEach } from 'vitest'

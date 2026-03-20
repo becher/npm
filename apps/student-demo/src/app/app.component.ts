@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { environment } from '../environments/environment.prod';
-import { StatoDevToolsComponent } from '@stato/angular';
+import { StatoDevToolsComponent } from '@ngstato/angular';
 
 @Component({
   selector: 'app-root',

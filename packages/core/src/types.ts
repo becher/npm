@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────
-// TYPES PUBLICS DE @stato/core
+// TYPES PUBLICS DE @ngstato/core
 // ─────────────────────────────────────────────────────
 
 // Le state de base — tout sauf actions, computed, hooks

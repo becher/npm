@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────
-// @stato/core — fromStream()
+// @ngstato/core — fromStream()
 // Pont entre un flux Observable/callback et le state
 // Pour : Firebase, Supabase, WebSocket, SSE
 // RxJS optionnel — pas obligatoire

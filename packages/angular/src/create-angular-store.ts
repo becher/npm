@@ -1,6 +1,6 @@
 // ─────────────────────────────────────────────────────
-// @stato/angular — createAngularStore()
-// Transforme un stato store en store Angular avec Signals
+// @ngstato/angular — createAngularStore()
+// Transforme un ngstato store en store Angular avec Signals
 // ─────────────────────────────────────────────────────
 
 import {
@@ -11,8 +11,8 @@ import {
   Signal
 } from '@angular/core'
 
-import { createStore } from '@stato/core'
-import type { StatoStoreConfig } from '@stato/core'
+import { createStore } from '@ngstato/core'
+import type { StatoStoreConfig } from '@ngstato/core'
 
 // ─────────────────────────────────────────────────────
 // FONCTION PRINCIPALE — createAngularStore()

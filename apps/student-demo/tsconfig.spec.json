@@ -8,8 +8,8 @@
       "jasmine"
     ],
      "paths": {
-      "@stato/core":    ["../../packages/core/src/index.ts"],
-      "@stato/angular": ["../../packages/angular/src/index.ts"]
+      "@ngstato/core":    ["../../packages/core/src/index.ts"],
+      "@ngstato/angular": ["../../packages/angular/src/index.ts"]
     }
   },
   "include": [

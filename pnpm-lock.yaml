@@ -51,10 +51,10 @@ importers:
       '@angular/router':
         specifier: ^18.2.0
         version: 18.2.14(@angular/common@18.2.14(@angular/core@18.2.14(rxjs@7.8.2)(zone.js@0.14.10))(rxjs@7.8.2))(@angular/core@18.2.14(rxjs@7.8.2)(zone.js@0.14.10))(@angular/platform-browser@18.2.14(@angular/animations@18.2.14(@angular/core@18.2.14(rxjs@7.8.2)(zone.js@0.14.10)))(@angular/common@18.2.14(@angular/core@18.2.14(rxjs@7.8.2)(zone.js@0.14.10))(rxjs@7.8.2))(@angular/core@18.2.14(rxjs@7.8.2)(zone.js@0.14.10)))(rxjs@7.8.2)
-      '@stato/angular':
+      '@ngstato/angular':
         specifier: workspace:*
         version: link:../../packages/angular
-      '@stato/core':
+      '@ngstato/core':
         specifier: workspace:*
         version: link:../../packages/core
       rxjs:
@@ -103,7 +103,7 @@ importers:
 
   packages/angular:
     dependencies:
-      '@stato/core':
+      '@ngstato/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:

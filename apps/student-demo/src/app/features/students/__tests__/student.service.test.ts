@@ -1,11 +1,11 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { StudentService } from '../services/student.service'
-import { configureHttp }  from '@stato/core'
+import { configureHttp }  from '@ngstato/core'
 
 // ─── Mock http ────────────────────────────────────────────────────────────────
 
-vi.mock('@stato/core', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@stato/core')>()
+vi.mock('@ngstato/core', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@ngstato/core')>()
   return {
     ...actual,
     http: {
@@ -18,7 +18,7 @@ vi.mock('@stato/core', async (importOriginal) => {
   }
 })
 
-import { http } from '@stato/core'
+import { http } from '@ngstato/core'
 
 // ─── SETUP ────────────────────────────────────────────────────────────────────
 

@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────
-// @stato/angular — injectStore()
+// @ngstato/angular — injectStore()
 // Helper pour injecter un store dans un composant
 // ─────────────────────────────────────────────────────
 

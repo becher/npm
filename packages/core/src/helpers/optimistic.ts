@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────
-// @stato/core — optimistic()
+// @ngstato/core — optimistic()
 // Mise à jour optimiste avec rollback automatique
 // ─────────────────────────────────────────────────────
 

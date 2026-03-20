@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────
-// @stato/core — abortable()
+// @ngstato/core — abortable()
 // Annule automatiquement la requête précédente
 // Remplace switchMap de RxJS — sans RxJS
 // ─────────────────────────────────────────────────────

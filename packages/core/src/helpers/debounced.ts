@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────
-// @stato/core — debounced()
+// @ngstato/core — debounced()
 // Attend que l'utilisateur arrête de taper
 // Remplace debounceTime de RxJS — sans RxJS
 // ─────────────────────────────────────────────────────

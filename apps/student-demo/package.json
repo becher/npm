@@ -21,8 +21,8 @@
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10",
-    "@stato/core":    "workspace:*",
-    "@stato/angular": "workspace:*"
+    "@ngstato/core":    "workspace:*",
+    "@ngstato/angular": "workspace:*"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.2.9",

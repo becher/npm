@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────
-// @stato/core — createStore()
+// @ngstato/core — createStore()
 // Le moteur principal de Stato
 // ─────────────────────────────────────────────────────
 

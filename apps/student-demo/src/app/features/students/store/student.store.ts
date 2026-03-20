@@ -10,7 +10,7 @@ import {
   optimistic,
   fromStream,
   retryable
-}                      from '@stato/core'
+}                      from '@ngstato/core'
 import { StudentService } from '../services/student.service'
 import type {
   Student,
@@ -207,8 +207,8 @@ export function createStudentStore(service: StudentService) {
 // ─────────────────────────────────────────────────────
 
 import { Injectable, OnDestroy } from '@angular/core'
-import { devTools } from '@stato/core'
-import { connectDevTools } from '@stato/core'
+import { devTools } from '@ngstato/core'
+import { connectDevTools } from '@ngstato/core'
 
 @Injectable({ providedIn: 'root' })
 export class StudentStore implements OnDestroy {

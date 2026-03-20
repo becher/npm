@@ -3,7 +3,7 @@ import { CommonModule }              from '@angular/common'
 import { FormsModule }               from '@angular/forms'
 import { StudentStore }              from '../../store/student.store'
 import type { StudentCreate }        from '../../../../core/models/student.model'
-import { injectStore }               from '@stato/angular'
+import { injectStore }               from '@ngstato/angular'
 
 @Component({
   selector:   'app-student-form',

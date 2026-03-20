@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────
-// @stato/core — retryable()
+// @ngstato/core — retryable()
 // Réessaie automatiquement en cas d'échec
 // Remplace retryWhen de RxJS — sans RxJS
 // ─────────────────────────────────────────────────────

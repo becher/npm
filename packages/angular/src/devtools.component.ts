@@ -9,12 +9,12 @@ import {
   AfterViewInit
 }                        from '@angular/core'
 import { CommonModule }  from '@angular/common'
-import { devTools }      from '@stato/core'
-import type { ActionLog } from '@stato/core'
-import { STATO_CONFIG }  from './provide-stato'
+import { devTools }      from '@ngstato/core'
+import type { ActionLog } from '@ngstato/core'
+import { STATO_CONFIG }  from './provide-ngstato'
 
 @Component({
-  selector:   'stato-devtools',
+  selector:   'ngstato-devtools',
   standalone: true,
   imports:    [CommonModule],
   template: `

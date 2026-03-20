@@ -22,7 +22,7 @@ const mockService = {
 
 // Import dynamique pour injecter le mock service
 async function makeStore() {
-  const { createStore, debounced, optimistic, retryable } = await import('@stato/core')
+  const { createStore, debounced, optimistic, retryable } = await import('@ngstato/core')
 
   return createStore({
     students:      [] as typeof mockStudents,

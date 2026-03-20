@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────
-// @stato/core — tests StatoHttp
+// @ngstato/core — tests StatoHttp
 // ─────────────────────────────────────────────────────
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'

@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────
-// @stato/core — tests helpers approfondis
+// @ngstato/core — tests helpers approfondis
 // ─────────────────────────────────────────────────────
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
